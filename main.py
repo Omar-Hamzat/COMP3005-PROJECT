@@ -1,3 +1,8 @@
+"""
+Name: Omar Hamzat
+Student Number: 101244220
+date: 13th April 2024
+"""
 import psycopg2
 from flask import Flask, render_template, request, redirect, url_for, session
 from database import *
