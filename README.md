@@ -1,6 +1,6 @@
 Health and Fitness Club Management System
 
-Description
+Description: 
 The Health and Fitness Club Management System is a web application designed to manage various aspects of a health and fitness club, including member profiles, 
 trainer schedules, room bookings, equipment maintenance, class schedules, billing, and payments for membership fees and personal training sessions.
 
