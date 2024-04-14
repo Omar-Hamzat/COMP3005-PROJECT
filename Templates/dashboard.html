@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome, {{ username }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        h3 {
+            color: #555;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #777;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <!-- Add your logo image here -->
+        <img src="path_to_your_logo_image.jpg" alt="Logo">
+    </div>
+
+    <h2>Welcome, {{ username }}</h2>
+    <h3>Dashboard</h3>
+    <p>Username: {{ member_info[1] }}</p>
+    <p>Password: {{ member_info[2] }}</p>
+
+    <h3>Add Health Metric</h3>
+    <form method="POST" action="/add_health_metric/{{ username }}">
+        <label for="metric_name">Metric Name:</label>
+        <input type="text" id="metric_name" name="metric_name" required><br><br>
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" required><br><br>
+        <label for="height">Height:</label>
+        <input type="number" id="height" name="height" required><br><br>
+        <label for="pressure">Blood Pressure:</label>
+        <input type="number" id="pressure" name="pressure" required><br><br>
+        <label for="rate">Heart Rate:</label>
+        <input type="number" id="rate" name="rate" required><br><br>
+
+        <input type="submit" value="Add Metric">
+    </form>
+
+    <h3>Book Training Session</h3>
+    <form method="POST" action="{{ url_for('book_training_session', username=username) }}">
+        <label for="trainer">Select Trainer:</label>
+        <select id="trainer" name="trainer" required>
+            {% for trainer in trainers %}
+                <option value="{{ trainer[0] }}">{{ trainer[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="time">Select Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <input type="submit" value="Book Session">
+    </form>
+
+    <h3>Add Fitness Goals</h3>
+    <form method="POST" action="/add_fitness_goals/{{ username }}">
+        <label for="target_weight">Target Weight:</label>
+        <input type="number" id="target_weight" name="target_weight" required><br><br>
+        <label for="target_time">Target Time:</label>
+        <input type="text" id="target_time" name="target_time" required><br><br>
+        <label for="cardio_records">Cardio Records:</label>
+        <textarea id="cardio_records" name="cardio_records" required></textarea><br><br>
+        <label for="weightlifting_goals">Weightlifting Goals:</label>
+        <textarea id="weightlifting_goals" name="weightlifting_goals" required></textarea><br><br>
+
+        <input type="submit" value="Add Goals">
+    </form>
+    <h3>Health Metrics</h3>
+<table>
+    <tr>
+        <th>Metric Name</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Blood Pressure</th>
+        <th>Heart Rate</th>
+    </tr>
+    {% for metric in health_metrics %}
+    <tr>
+        <td>{{ metric[2] }}</td>
+        <td>{{ metric[3] }}</td>
+        <td>{{ metric[4] }}</td>
+        <td>{{ metric[5] }}</td>
+        <td>{{ metric[6] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    <h3>Fitness Goals</h3>
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Target Weight</th>
+        <th>Target Time</th>
+        <th>Cardio Records</th>
+        <th>Weightlifting Goals</th>
+    </tr>
+    {% for goal in fitness_goals %}
+    <tr>
+        <td>{{ goal[1] }}</td>
+        <td>{{ goal[2] }}</td>
+        <td>{{ goal[3] }}</td>
+        <td>{{ goal[4] }}</td>
+        <td>{{ goal[5] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    <form method="POST" action="/logout">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>

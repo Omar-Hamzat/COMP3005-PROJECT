@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome, {{ username }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+            margin: 20px;
+        }
+        h3 {
+            color: #555;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #777;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="path_to_your_image.jpg" alt="Logo">
+        <ul>
+            <li><a href="{{ url_for('manage_equipment') }}">Manage Equipment</a></li>
+            <li><a href="{{ url_for('payroll_profiles') }}">View Trainer Payroll Profiles</a></li>
+            <li><a href="{{ url_for('classes') }}">View classes</a></li>
+            <li><a href="{{ url_for('members') }}">View Members</a></li>
+            <li><a href="{{ url_for('trainers') }}">View Trainers</a></li>
+        </ul>
+    </nav>
+    <h2>Welcome, {{ username }}</h2>
+    <h3>Dashboard</h3>
+    <p>Username: {{ admin[1] }}</p>
+    <p>Password: {{ admin[2] }}</p>
+
+    <form method="POST" action="/logout">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Schedule</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .available {
+            background-color: #aaffaa;
+        }
+    </style>
+</head>
+<body>
+    <body>
+    <header>
+        <h1>Update Schedule</h1>
+        <nav>
+            <ul>
+                <li><a href="trainer-dashboard.html">Back to Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Your Schedule</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>April 15, 2024</td>
+                <td>9:00 AM - 11:00 AM</td>
+                <td><a href="#">Edit</a></td>
+            </tr>
+            <!-- Add more rows for other scheduled sessions -->
+        </table>
+    </section>
+
+    <section>
+        <h2>Edit Schedule</h2>
+        <form>
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" required><br><br>
+
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" required><br><br>
+
+            <input type="submit" value="Update Schedule">
+        </form>
+    </section>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mock schedule data
+            let scheduleData = [
+                { date: "April 15, 2024", time: "9:00 AM - 11:00 AM", member: "John Doe", status: "Confirmed" },
+                // Add more schedule data as needed
+            ];
+
+            // Display initial schedule data in the table
+            displaySchedule();
+
+            // Handle form submission to update schedule
+            document.getElementById("update-schedule-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                let date = document.getElementById("date").value;
+                let time = document.getElementById("time").value;
+
+                // Update schedule data
+                scheduleData.push({ date: date, time: time, member: "", status: "" });
+
+                // Update the displayed schedule
+                displaySchedule();
+            });
+
+            // Function to display schedule data in the table
+            function displaySchedule() {
+                let tableBody = document.querySelector("#schedule-table tbody");
+                tableBody.innerHTML = "";
+                scheduleData.forEach(function(schedule) {
+                    let row = `<tr><td>${schedule.date}</td><td>${schedule.time}</td><td>${schedule.member}</td><td>${schedule.status}</td></tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

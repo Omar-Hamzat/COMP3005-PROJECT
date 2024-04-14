@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor Equipments</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .faulty {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Monitor Equipments</h1>
+    </header>
+
+    <section>
+        <h2>Gym Equipment</h2>
+        <table>
+            <tr>
+                <th>Equipment Type</th>
+                <th>Number in Gym</th>
+                <th>Number Faulty</th>
+            </tr>
+            {% for equipment in equipment_data %}
+            <tr>
+                <td>{{ equipment[0] }}</td>
+                <td>{{ equipment[1] }}</td>
+                <td class="{% if equipment[2] > 0 %}faulty{% endif %}">{{ equipment[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 Health and Fitness Club. All rights reserved.</p>
+    </footer>
+</body>
+</html>

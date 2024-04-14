@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Class Schedules</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Update Class Schedules</h1>
+    </header>
+
+    <section>
+        <h2>Booked Classes</h2>
+        <table>
+            <tr>
+                <th>Class ID</th>
+                <th>Class Name</th>
+                <th>Trainer</th>
+                <th>Member</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Edit</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Yoga</td>
+                <td>Trainer A</td>
+                <td>Member X</td>
+                <td>2024-04-30</td>
+                <td>10:00 AM</td>
+                <td><a href="edit-class.html?id=1">Edit</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Zumba</td>
+                <td>Trainer B</td>
+                <td>Member Y</td>
+                <td>2024-05-01</td>
+                <td>5:00 PM</td>
+                <td><a href="edit-class.html?id=2">Edit</a></td>
+            </tr>
+            <!-- Add more booked classes as needed -->
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Health and Fitness Club. All rights reserved.</p>
+    </footer>
+</body>
+</html>

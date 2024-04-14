@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Members</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Members</h1>
+    </header>
+
+    <section>
+        <h2>List of Members</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+            {% for member in members_data %}
+            <tr>
+                <td>{{ member[1] }}</td>
+                <td>{{ member[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Health and Fitness Club. All rights reserved.</p>
+    </footer>
+</body>
+</html>

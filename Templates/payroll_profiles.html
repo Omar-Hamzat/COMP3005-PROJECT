@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Profiles</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .paid {
+            background-color: green;
+            color: white;
+        }
+
+        .unpaid {
+            background-color: red;
+            color: white;
+        }
+
+        .pay-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pay-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Payroll Profiles</h1>
+    </header>
+
+    <section>
+        <h2>Trainer Payroll Profiles</h2>
+        <table>
+            <tr>
+                <th>Trainer ID</th>
+                <th>Base Salary</th>
+                <th>Bonus</th>
+                <th>Deductions</th>
+                <th>Total Pay</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            {% for profile in profiles %}
+            <tr>
+                <td>{{ profile[1] }}</td>
+                <td>{{ profile[2] }}</td>
+                <td>{{ profile[3] }}</td>
+                <td>{{ profile[4] }}</td>
+                <td>{{ profile[5] }}</td>
+                <td class="{% if profile[6] %}paid{% else %}unpaid{% endif %}">
+                    {% if profile[6] %}Paid{% else %}Unpaid{% endif %}
+                </td>
+                <td>
+                    {% if not profile[6] %}
+                    <form method="POST" action="{{ url_for('process_payment', id=profile[0]) }}">
+                        <input class="pay-button" type="submit" value="Process Payment">
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Health and Fitness Club. All rights reserved.</p>
+    </footer>
+</body>
+</html>

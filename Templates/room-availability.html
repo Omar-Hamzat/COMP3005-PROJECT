@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Availability</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .available {
+            color: green;
+        }
+
+        .unavailable {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Room Availability</h1>
+    </header>
+
+    <section>
+        <h2>Room Availability Status</h2>
+        <table>
+            <tr>
+                <th>Room</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Room 1A</td>
+                <td class="available">Available</td>
+            </tr>
+            <tr>
+                <td>Room 1B</td>
+                <td class="unavailable">Unavailable</td>
+            </tr>
+            <tr>
+                <td>Room 1C</td>
+                <td class="available">Available</td>
+            </tr>
+            <tr>
+                <td>Room 1D</td>
+                <td class="available">Available</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Health and Fitness Club. All rights reserved.</p>
+    </footer>
+</body>
+</html>
