@@ -1,3 +1,8 @@
+"""
+Name: Omar Hamzat
+Student Number: 101244220
+date: 13th April 2024
+"""
 import psycopg2
 
 # Function to connect to the database
